@@ -1,0 +1,67 @@
+[
+    {
+        "landlord": {
+            "name": "John Doe",
+            "contact_number": "+254712345678",
+            "email": "john.doe@example.com",
+            "is_verified": true
+        },
+        "complex": {
+            "name": "Campus View Apartments",
+            "location": "Kilimani, Nairobi"
+        },
+        "listing": {
+            "title": "Modern Studio Near Campus",
+            "description": "Cozy and affordable studio, 5 minutes to campus. Shared kitchen, fast WiFi.",
+            "property_type": "Studio",
+            "location": "Kilimani, Nairobi",
+            "price": 12000,
+            "is_bargainable": false,
+            "size_sqm": 30,
+            "floor_number": 3,
+            "year_built": 2018,
+            "furnishing": "Furnished",
+            "amenities": ["WiFi", "Kitchen", "Parking"],
+            "utilities": "Water included, electricity prepaid",
+            "internet_speed": "50 Mbps",
+            "minimum_lease_duration": "6 months",
+            "availability_date": "2025-10-01",
+            "photos": ["https://via.placeholder.com/400x300"],
+            "video_tour_url": "",
+            "floor_plan_url": "",
+            "neighborhood_rating": 4.5,
+            "renovations": "None"
+        }
+    },
+    {
+        "landlord": {
+            "name": "Jane Smith",
+            "contact_number": "+254798765432",
+            "email": "jane.smith@example.com",
+            "is_verified": true
+        },
+        "complex": null,
+        "listing": {
+            "title": "Budget Bedsitter Close to Kenyatta University",
+            "description": "Simple bedsitter for a student. Water & electricity included.",
+            "property_type": "Bedsitter",
+            "location": "Kasarani, Nairobi",
+            "price": 8000,
+            "is_bargainable": true,
+            "size_sqm": 20,
+            "floor_number": 1,
+            "year_built": 2015,
+            "furnishing": "Unfurnished",
+            "amenities": ["Water"],
+            "utilities": "Water and electricity included",
+            "internet_speed": "",
+            "minimum_lease_duration": "1 year",
+            "availability_date": "2025-09-15",
+            "photos": ["https://via.placeholder.com/400x300"],
+            "video_tour_url": "",
+            "floor_plan_url": "",
+            "neighborhood_rating": 3.8,
+            "renovations": "Repainting in progress"
+        }
+    }
+]

@@ -1,0 +1,77 @@
+text,intent
+"Find me a bedsitter near Kenyatta University under 8k",search_listings
+"I need a 2 bedroom in Kilimani around 15k",search_listings
+"Do you have studios near Westlands",search_listings
+"Show me apartments in Lavington",search_listings
+"I am looking for a house to rent",search_listings
+"Are there any available rooms in Ngara?",search_listings
+"Natafuta nyumba ya kurent",search_listings
+"Nionyeshe bedsitter Ruiru",search_listings
+"Nyumba gani iko available?",search_listings
+"Chumba kimoja bei gani?",search_listings
+"Manze, nasaka keja sides za South B",search_listings
+"Niaje, nasaka one bedroom sides za Donholm",search_listings
+"Sasa, kuna bedsitter poa area gani?",search_listings
+"I need a furnished apartment",search_listings
+"Show me listings with WiFi and parking",search_listings
+"Natafuta nyumba iko na parking",search_listings
+"I need a place that is fully furnished",search_listings
+"Are there any listings with a gym?",search_listings
+"are there any 2 bedrooms in lavington",search_listings
+"I need a single room around Westlands",search_listings
+"mna bedsitter area ya juja?",search_listings
+"tafuta nyumba ya elfu kumi",search_listings
+"show me places with good security",search_listings
+"Save listing 5e3f261a-922a-4f18-8954-b232a84ed5d1",save_listing
+"Please save 7a2f... for me",save_listing
+"I want to save this one",save_listing
+"Add this to my favorites",save_listing
+"Weka hii kwa favorites zangu",save_listing
+"Naweza save hii listing?",save_listing
+"Save hii hao",save_listing
+"Hii iko poa tebu save",save_listing
+"Yes please save this one",save_listing
+"can you save this one for me? aBc-123-DeF",save_listing
+"add listing aBc-123-DeF to my favorites",save_listing
+"save it",save_listing
+"weka hii kwa favorites",save_listing
+"I want to book a viewing for 08343d97-671b-414e-a848-e8c7184bec98 tomorrow",create_inquiry
+"I am interested in this listing",create_inquiry
+"Can I get more information about this property?",create_inquiry
+"How do I contact the landlord?",create_inquiry
+"Nataka kuuliza kuhusu hii nyumba",create_inquiry
+"Naweza pata namba ya landlord?",create_inquiry
+"Hii nyumba bado iko?",create_inquiry
+"Nipe details za hii listing",create_inquiry
+"Is this listing negotiable?",create_inquiry
+"What is the minimum lease duration?",create_inquiry
+"I want to ask about listing aBc-123-DeF",create_inquiry
+"how do I book a viewing for aBc-123-DeF?",create_inquiry
+"nataka kuongea na landlord wa hii",create_inquiry
+"book viewing",create_inquiry
+"is this still available?",create_inquiry
+"Hey there, hi",greeting
+"Thanks, bye",greeting
+"Hello",greeting
+"Good morning",greeting
+"Habari",greeting
+"Mambo vipi",greeting
+"Sasa",greeting
+"Niaje",greeting
+"Poa",greeting
+"Rada",greeting
+"how are you",greeting
+"thanks for the help",greeting
+"What is the weather like today?",fallback
+"Can you tell me a joke?",fallback
+"What is the capital of Kenya?",fallback
+"Who is the president of the USA?",fallback
+"What is the time?",fallback
+"Nipigie stori",fallback
+"Unaweza nichekesha?",fallback
+"Leo kuna baridi?",fallback
+"Tell me about yourself",fallback
+"What is your name?",fallback
+"who are you?",fallback
+"hii ni nini",fallback
+"what else can you do",fallback

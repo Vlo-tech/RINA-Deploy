@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+*.sqlite
+chat_memory.db
+node_modules/
+.DS_Store
+*.log
+.venv
