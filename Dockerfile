@@ -1,37 +1,54 @@
-# Dockerfile - builds the webhook app
-FROM python:3.11-slim
+# Stage 1: Builder
+# This stage installs all dependencies, including build-time tools.
+FROM python:3.11-slim AS builder
 
-WORKDIR /app
+# Install build-time and runtime system dependencies, and update packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential gcc git \
+    ffmpeg libsndfile1 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Create a virtual environment to isolate dependencies
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+# Copy requirements and install Python packages into the virtual environment
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+
+# Stage 2: Final Image
+# This stage creates the final, lean image for production.
+FROM python:3.11-slim
 
 # Create a non-root user
 RUN useradd --create-home appuser
 
-# system deps for some libraries
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential gcc ffmpeg libsndfile1 curl git && \
-
+# Install ONLY runtime system dependencies and patch vulnerabilities
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
+    ffmpeg libsndfile1 && \
     rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt /app/requirements.txt
-COPY listings.json /app/listings.json
+# Copy the virtual environment with installed packages from the builder stage
+COPY --from=builder /opt/venv /opt/venv
 
-RUN pip install --no-cache-dir -r /app/requirements.txt
+# Set up the application directory
+WORKDIR /app
+COPY listings.json .
+COPY ./src ./src
 
-# copy source
-COPY ./src /app/src
-
-# Change ownership of the app directory
+# Change ownership to the non-root user
 RUN chown -R appuser:appuser /app
 
 # Switch to the non-root user
 USER appuser
 
+# Activate the virtual environment and set other environment variables
+ENV PATH="/opt/venv/bin:$PATH"
 ENV PYTHONUNBUFFERED=1
-ENV FLASK_ENV=production
 
-# default port 5000 (Flask)
 EXPOSE 5000
 
-# CMD ["python", "webhook_handler.py"]
-# For production with gunicorn:
+# Set the command to run the application
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "src.webhook_handler:app", "--workers=2", "--timeout=120"]
