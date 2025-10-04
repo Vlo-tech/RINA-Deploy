@@ -10,3 +10,5 @@ supabase==1.0.0
 numpy==1.26.4
 langdetect==1.0.9
 Werkzeug==2.3.8
+Flask-Cors==4.0.0
+supabase-py==2.4.1
