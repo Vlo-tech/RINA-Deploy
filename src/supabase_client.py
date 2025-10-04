@@ -170,3 +170,22 @@ def create_inquiry(user_phone: str, listing_id: str, message: str):
     resp = requests.post(f"{REST_URL}/inquiries", json=body, headers=POST_HEADERS, timeout=REQUEST_TIMEOUT)
     _raise_for_resp(resp)
     return resp.json()
+
+
+# Frontier data traces
+def save_trace_snapshot(snapshot: Dict[str, Any]):
+    """Persist a full agent trace snapshot to Supabase if a table exists.
+    Expects a table named 'agent_traces' with columns: id (uuid), payload (jsonb), created_at (timestamptz).
+    """
+    try:
+        body = {"payload": snapshot}
+        resp = requests.post(f"{REST_URL}/agent_traces", json=body, headers=POST_HEADERS, timeout=REQUEST_TIMEOUT)
+        # allow 404 if table doesn't exist
+        if resp.status_code == 404:
+            return None
+        _raise_for_resp(resp)
+        return resp.json()
+    except Exception:
+        # swallow errors so chat flow never breaks
+        return None
+
